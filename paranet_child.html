@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Parents Child</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-5 mx-auto" >
+          <p id="resChild">Your Selected Child Here</p>
+          <ul class="list-group" id="parents">
+            <li class="list-group-item" name="Child 1">Child1</li>
+            <li class="list-group-item" name="Child 2">Child2</li>
+            <li class="list-group-item" name="Child 3">Child3</li>
+            <li class="list-group-item" name="Child 4">Child4</li>
+            <li class="list-group-item" name="Child 5">Child5</li>
+          </ul>
+
+          <button id="first" class="btn btn-sm btn-success">First Child</button>
+          <button id="last" class="btn btn-sm btn-success">Last Child</button>
+          <button id="select_child" class="btn btn-sm btn-success">
+            All Childrens
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+ 
+
+    <script>
+      const parents = document.getElementById("parents");
+      const resChild = document.getElementById("resChild");
+      const first = document.getElementById("first");
+      const last = document.getElementById("last");
+      const select_child = document.getElementById("select_child");
+      //console.log(parents);
+
+      // count total children
+      var tatalChild = parents.childElementCount;
+
+      //Get First Child 
+      first.addEventListener("click", () => {
+        var child1 = parents.firstElementChild;
+        //var value = child1.('li').value;
+        resChild.innerHTML = "You Have Selected "+child1.getAttribute('name')+" out of "+tatalChild+" Childrens";
+        //console.log(child1);
+      });
+      // Get Last Child
+      last.addEventListener('click',()=>{
+        var childLast = parents.lastElementChild;
+        resChild.innerHTML = "You Have Selected "+childLast.getAttribute('name')+" out of "+tatalChild+" Childrens";
+      });
+      //Get All Child
+      select_child.addEventListener('click',()=>{
+        var allChild = parents.children;
+        console.log(allChild);
+       
+      });
+    </script>
+  </body>
+</html>

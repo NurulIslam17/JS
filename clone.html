@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Decode Js</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card card-body shadow">
+            <h4 class="text-center">Input Fiels coloning</h4>
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="passwpasswordord"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+
+              <div id="dynamic">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="form-group">
+                      <label for="desc">Desc</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="desc"
+                        name="desc[]"
+                        placeholder="desc"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="file">File</label>
+                      <input type="file" class="" name="image[]" id="file" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-1 m-0 p-0">
+                    <a class="btn btn-primary mt-4" id="clone">+</a>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Script -->
+    <script>
+      const clone = document.getElementById("clone");
+      const dynamic = document.getElementById("dynamic");
+      // dynamic.appendChild(dynamic.cloneNode(true));
+
+      let i = 0;
+      let limit = 3;
+
+      clone.addEventListener("click", function (e) {
+        //alert('Ok');
+        //dynamic.appendChild(dynamic.cloneNode(true));
+
+        if (i < limit) {
+          let html =`
+                    <div id="dynamic`+i+`">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="desc">Desc</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="desc"
+                              name="desc[]"
+                              placeholder="desc"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="file">File</label>
+                            <input type="file" class="" name="image[]" id="file" />
+                          </div>
+                        </div>
+
+                        <div class="col-md-1 m-0 p-0">
+                          <a class="btn btn-danger remove_button mt-4" id="`+i+`"> X </a>
+                        </div>
+                      </div>
+                    </div>`;
+          dynamic.insertAdjacentHTML("afterend", html);
+          i++;
+        }
+      });
+
+      $(document).on("click", ".remove_button", function (e) {
+        e.preventDefault();
+        var button_id = $(this).attr("id");
+        $("#dynamic" + button_id + "").remove();
+        i--;
+      });
+    </script>
+  </body>
+</html>
