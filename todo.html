@@ -18,73 +18,60 @@
 
     <style>
       .form-control:focus {
-        border: none;
-        border-color: none!important;
+        border-color: none !important;
         outline: 0;
-        box-shadow:none!important;
+        box-shadow: none !important;
       }
     </style>
 
-    <title>Decode Js</title>
+    <title>Togo</title>
   </head>
   <body>
-    <div class="container mt-5">
+    <div class="container mt-5 shadow rounded-0">
       <div class="row">
         <div class="col-md-5 mx-auto">
-          <div
-            class="card card-body shadow rounded-0"
-            style="background-color: rgb(232, 233, 241)"
-          >
-            <h3 class="text-center">Checkbox Event</h3>
 
-            <form action="" method="post">
-              <div class="form-group">
-                <label for="exampleInputEmail1"
-                  ><strong>Present Address</strong></label
-                >
-                <textarea
-                  name="present_address"
-                  class="form-control rounded-0"
-                  placeholder="Present address"
-                  id="present-address"
-                  cols="30"
-                  rows="2"
-                ></textarea>
-              </div>
+          <div class="card card-body shadow">
 
-              <div class="form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input rounded-0"
-                  id="checkbox"
-                />
-                <label class="form-check-label" for="exampleCheck1"
-                  >Same as Present</label
-                >
+            <!-- todo Form -->
+            <form>
+              <div class="row px-2">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <input type="text" class="form-control"
+                    name="input-todo" id="">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <button type="submit" class="btn btn-sm btn-success">
+                    Add
+                  </button>
+                </div>
               </div>
-
-              <div class="form-group mt-2">
-                <label for="exampleInputEmail1"
-                  ><strong>Parmanent Address</strong></label
-                >
-                <textarea
-                  name="parmanent_address"
-                  class="form-control rounded-0"
-                  placeholder="Parmanent address"
-                  id="parmanent-address"
-                  cols="30"
-                  rows="2"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="btn btn-sm btn-success rounded-3"
-                style="background-color: azure; color: black"
-              >
-                <strong>Save</strong>
-              </button>
             </form>
+            <!-- Todo Lis -->
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table table-striped table-bordered">
+                  <thead class="text-center">
+                    <tr>
+                      <th>Todo</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <tr>
+                      <td>Going TO office</td>
+                      <td>
+                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -124,4 +111,4 @@
       });
     </script>
   </body>
-</html>  
+</html>
